@@ -20,7 +20,7 @@
 
 ## Installation
 
-You will need to install node packages including express-handlebars, generate-password, express.js, MYSQL2, sequelize, bcrypyt, and express-session.
+You will need to install node packages including express.js and mongoose.js after cloning the repo.
 
 ## License
 

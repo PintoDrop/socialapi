@@ -1,6 +1,6 @@
-const path = require("path");
+const routes = require("./routes");
 const express = require("express");
-const mongoose = require("mongoose");
+const db = require('./config/connection');
 // const dotenv = require("dotenv");
 
 const app = express();
@@ -10,9 +10,9 @@ app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
-
 app.use(routes);
+// app.use(express.static(path.join(__dirname, "public")));
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));

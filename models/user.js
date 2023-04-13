@@ -14,7 +14,9 @@ User.init(
       // String, unique, required, trimmed
     },
     email: {
-      type: Datatypes.STRING,
+      type: String,
+      required: true,
+      unique: true,
       // required, unique, must match valid email with mongoose
        validate: {
         isEmail: true

@@ -6,17 +6,19 @@ class Thought extends Model {}
 Thought.init(
   {
     thoughtText: {
-      type: Datatypes.STRING,
-      // required
+      type: String,
+      required: true,
       // must be between 1 and 280 characters
     },
     createdAt: {
+      type: Date,
       // date,
       // set default value to current time stamp,
       // yser getter method to format the timestamp on query,
     },
     username: {
-      type: Datatypes.STRING,
+      type: String,
+      required: true
       // required
     },
     reactions: {

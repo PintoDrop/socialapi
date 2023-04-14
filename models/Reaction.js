@@ -1,8 +1,8 @@
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
+const Reaction = new Schema(
 
-
-
-Reaction.init(
 {
   reactionId: {
     // use mongooses ObjectId data type

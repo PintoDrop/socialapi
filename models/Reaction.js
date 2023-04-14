@@ -1,7 +1,7 @@
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
+const { Schema, model } = require("mongoose");
+const thoughtSchema = require("./Thought");
 
-const Reaction = new Schema(
+const reactionSchema = new Schema(
 
 {
   reactionId: {
@@ -10,6 +10,7 @@ const Reaction = new Schema(
   reactionBody: {
     type: String, 
     required: true,
+    maxlength: 280,
     // max characters 280
   },
   username: {
@@ -17,11 +18,21 @@ const Reaction = new Schema(
     required: true
   }
   createdAt: {
+    type: Date,
+    default: Date.now,
     // date
     // set default value to current time
     // use getter method to format timestamp on query
   }
 }
+  {
+    toJSON: {
+      getters: true,
+    },
+    id: false,
+  }
 )
 
-module.exports = reaction
+const Reaction = model('reaction', reactionSchema);
+
+module.exports = Reaction;

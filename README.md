@@ -61,3 +61,9 @@ GIVEN a social network API
 ## Screen-Shots
 
 ![]()
+
+
+<!-- 
+finish first route before testing with npm start
+finish models then move to routes 
+ -->

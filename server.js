@@ -1,34 +1,16 @@
-// const routes = require("./routes");
+const routes = require("./routes");
 const express = require("express");
-// const db = require('./config/connection');
-const mongoose = require("mongoose").MongoClient;
-// const dotenv = require("dotenv");
+const db = require("./config/connection");
 
 const app = express();
-// const PORT = process.env.PORT || 3001;
-const port = 3001;
+const PORT = process.env.PORT || 3001;
 
-const connectionStringURI = `mongodb://127.0.0.1:27017/socialApiDB`;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(routes);
 
-mongodb.connect(
-  connectionStringURI,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  (err, client) => {
-    db = client.db();
-    app.listen(port, () => {
-      console.log(`App listening at http://localhost:${port}`);
-    });
-  }
-);
-
-// app.use(session(sess));
-
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(routes);
-// app.use(express.static(path.join(__dirname, "public")));
-
-
-// sequelize.sync({ force: false }).then(() => {
-//   app.listen(PORT, () => console.log("Now listening"));
-// });
+db.once("open", () => {
+  app.listen(PORT, () => {
+    console.log(`API server for ${activity} running on port ${PORT}!`);
+  });
+});

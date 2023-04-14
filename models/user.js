@@ -1,9 +1,9 @@
-const { Model, Datatypes } = require("sequilize");
-const sequilize = require("../config/connection");
+const { Schema, model } = require("mongoose");
+const thoughtSchema = require("./Thought");
 
-class User extends Model {}
 
-User.init(
+
+const userSchema = new Schema(
   {
     username: {
       type: String,
@@ -17,42 +17,37 @@ User.init(
       type: String,
       required: true,
       unique: true,
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        "Please fill a valid email address",
+      ],
       // required, unique, must match valid email with mongoose
-       validate: {
-        isEmail: true
-      }
     },
-    thoughts: {
-      // array of _id values referencing the thought model
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
+    ],
+    // array of _id values referencing the thought model
+
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    // array of _id values referencing the User model
+  },
+  {
+    toJSON: {
+      virtuals: true,
     },
-    friends: {
-      // array of _id values referencing the User model
-    }
+    id: false,
   }
-)
+);
 
-
-
-
-// User.init(
-//   {
-//     id: {
-//       type: DataTypes.INTEGER,
-//       allowNull: false,
-//       primaryKey: true,
-//       autoIncrement: true
-//     },
-//     name: {
-//       type: DataTypes.STRING,
-//       allowNull: false
-//     },
-//     email: {
-//       type: DataTypes.STRING,
-//       allowNull: false,
-//       unique: true,
-//       validate: {
-//         isEmail: true
-//       }
+const User = model("user", userSchema);
 
 
 module.exports = User;

@@ -16,7 +16,11 @@
 
 ## Description
 
+For this assignment I was tasked with creating a an API for a social network application where the user would be able to comment their thoughts and react to other uses thoughts. Using express.js and mongoose this application will be tested with insomnia to show that the posts are able to be made as well as the reactions. 
+
 ## Usage
+
+The user will be able to comment their thoughts and then use reactions to reply to other users thoughts.
 
 ## Installation
 

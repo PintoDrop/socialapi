@@ -1,5 +1,13 @@
 const { User, Thought } = require("../models");
 
+// const user = {
+//   getUsers(req, res) {
+//     User.find({})
+//       .then((user) => res.json(user))
+//       .catch((err) => res.status(500).json(err));
+//   },
+// };
+
 module.exports = {
   getUsers(req, res) {
     User.find({})

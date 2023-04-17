@@ -1,11 +1,11 @@
-const { Schema, model } = require("mongoose");
-const thoughtSchema = require("./Thought");
+const { Schema, Types } = require("mongoose");
+// const thoughtSchema = require("./Thought");
 
 const reactionSchema = new Schema(
   {
     reactionId: {
       type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
+      default: () => new Types.ObjectId()
       // use mongooses ObjectId data type
     },
     reactionBody: {
@@ -36,6 +36,11 @@ const reactionSchema = new Schema(
   }
 );
 
-const Reaction = model('Reaction', reactionSchema);
 
-module.exports = Reaction;
+// Issue with models in reaction
+// const Reaction = model('Reaction', reactionSchema);
+
+// module.exports = Reaction;
+
+// trying different export
+module.exports = reactionSchema;

@@ -21,6 +21,8 @@ module.exports = {
 
     updateThought(req, res) {
       Thought.findOneAndUpdate({ _id: req.params.thoughtId })
-    }
+    },
+    
+    deleteThought(req, res)
   }
 // }

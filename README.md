@@ -64,11 +64,13 @@ GIVEN a social network API
 
 
 <!-- 
-finish first route before testing with npm start
-finish models then move to routes 
-
-
 matching email causing issues ?
 routes check?
 reaction schema models?
  -->
+
+ <!-- 
+ need to update users
+ need to add user without erroring out, even tho it appears
+ need to post a thought and such
+  -->

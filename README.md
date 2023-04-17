@@ -16,11 +16,11 @@
 
 ## Description
 
-For this assignment I was tasked with creating a an API for a social network application where the user would be able to comment their thoughts and react to other uses thoughts. Using express.js and mongoose this application will be tested with insomnia to show that the posts are able to be made as well as the reactions. 
+For this assignment I was tasked with creating a an API for a social network application where the user would be able to comment their thoughts and react to other users thoughts. Using express.js and mongoose this application will be tested with insomnia to show that the posts are able to be made as well as the reactions. Within insomnia I am able to create, update, find and delete a user. This is also synced to my mongoose so the data base is updated as I am making changes.
 
 ## Usage
 
-The user will be able to comment their thoughts and then use reactions to reply to other users thoughts. The user will also be able to delete their thoughts and reactions allowing them to interact with the application.
+The user will be able to comment their thoughts and then use reactions to reply to other users thoughts. The user will also be able to delete their thoughts and reactions allowing them to interact with the application. If the user wishes to create an account they will be able to do so and then update it as needed.
 
 ## Installation
 
@@ -60,17 +60,20 @@ GIVEN a social network API
 
 ## Screen-Shots
 
-![]()
+![Insomnia User Get](./images/userFindInsomnia.JPG)
+
+![Mongoose user data](./images/userSyncMongoose.JPG)
 
 
 <!-- 
-matching email causing issues ?
 routes check?
 reaction schema models?
  -->
 
  <!-- 
- need to update users
- need to add user without erroring out, even tho it appears
- need to post a thought and such
+ need to update users - DONE 
+ need to add user without erroring out, even tho it appears - DONE
+
+ need to post, find, update, delete a thought and such
+ adding friends and reactions
   -->

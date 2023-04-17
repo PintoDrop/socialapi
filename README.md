@@ -66,4 +66,6 @@ GIVEN a social network API
 <!-- 
 finish first route before testing with npm start
 finish models then move to routes 
+matching email causing issues ?
+routes check?
  -->

@@ -21,8 +21,22 @@ module.exports = {
 
     updateThought(req, res) {
       Thought.findOneAndUpdate({ _id: req.params.thoughtId })
+      .then((thought) => !thought 
+      ? res.status(404).json ({ message: 'No thoughts with this id' })
+      : res.json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
     },
-    
-    deleteThought(req, res)
+
+    deleteThought(req, res) {
+      Thought.findOneAndDelete({ _id: req.params.thoughtId })
+      .then((thought) => 
+      !thought
+      ? res.status(404).json ({ message: 'No thoughts with this id' })
+      : User.deleteMany({ _id: { $in: thought.users } })
+      )
+      .then(() => res.json ({ message: 'Thought and user has been deleted' }))
+      .catch((err) => res.status(500).json(err));
+    }
   }
 // }

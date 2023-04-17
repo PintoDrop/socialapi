@@ -15,12 +15,13 @@ module.exports = {
   },
 
   createThought(req,res) {
-    Thought.create(req, res) {
+    Thought.create(req, res) 
+    // {
       Thought.create(req.body).then((thought) => res.json(thought)).catch((err) => {
         console.log(err);
         return res.status(500).json(err);
       });
-    }
+    // }
   },
 
     updateThought(req, res) {

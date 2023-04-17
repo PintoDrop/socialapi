@@ -9,3 +9,5 @@ const connectionString =
   });
 
 module.exports = connection;
+
+// module.exports = mongoose.connection;

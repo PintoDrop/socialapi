@@ -18,7 +18,7 @@ const reactionSchema = new Schema(
   username: {
     type: String,
     required: true
-  }
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -26,14 +26,15 @@ const reactionSchema = new Schema(
     // set default value to current time
     // use getter method to format timestamp on query
   }
-}
+},
   {
     toJSON: {
       getters: true,
     },
     id: false,
   }
-)
+  
+);
 
 const Reaction = model('reaction', reactionSchema);
 

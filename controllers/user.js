@@ -15,8 +15,35 @@ module.exports = {
         console.log(err);
         return res.status(500).json(err);
       });
-    }
-  }
+    },
+
+    updateUser(req, res) {
+      User.findOneAndUpdate( {_id: req.params.userId }
+        // { $set: req.body },
+        )
+      .then((user) => !user ? res.status(404).json ({ message: 'No user with this id' })
+      : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
+    },
+
+  //   deleteUser(req, res) {
+  //     User.findOneAndRemove({ _id: req.params.userId }).then((user) => !user
+  //     ? res.status(404).json({ message: 'This user does not appear' })
+  //     : Thought.findOneAndUpdate(
+  //       { users: req.params.userId },
+  //       { $pull: { users: req.params.userId }},
+  //       { new: true }
+  //     )
+  //   )
+  //   .then((thought) => !thought ? res.status(404).json({ message: 'User deleted, but no thoughts are located'})
+  //   : res.json({ message: 'User has been deleted' })
+  //   )
+  //   .catch((err) => { console.log(err);
+  //   res.status(500).json(err)
+  // });
+  //   }
+  // }
 }
 
 

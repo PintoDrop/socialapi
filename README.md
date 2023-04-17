@@ -20,7 +20,7 @@ For this assignment I was tasked with creating a an API for a social network app
 
 ## Usage
 
-The user will be able to comment their thoughts and then use reactions to reply to other users thoughts.
+The user will be able to comment their thoughts and then use reactions to reply to other users thoughts. The user will also be able to delete their thoughts and reactions allowing them to interact with the application.
 
 ## Installation
 

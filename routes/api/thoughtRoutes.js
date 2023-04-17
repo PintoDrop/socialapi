@@ -7,8 +7,8 @@ const {
   createThought,
   updateThought,
   deleteThought,
-  createReaction,
-  deleteReaction
+  // createReaction,
+  // deleteReaction
 } = require("../../controllers/thought.js")
 
 

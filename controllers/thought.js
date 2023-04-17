@@ -2,10 +2,17 @@ const { User, Thought } = require("../models");
 
 
 module.exports = {
-  getThoughts(req, res) {
-    Thought.find({})
-    .then((thought) => res.json(thought))
-    .catch((err) => res.status(500).json(err));
+  async getThoughts(req, res) {
+    // Thought.find()
+    // .then((thought) => res.json(thought))
+    // .catch((err) => res.status(500).json(err));
+    try {
+      const dbStuff = await Thought.find();
+      res.json(dbStuff)
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(err);
+    }
   },
 
   getOneThought(req, res) {
@@ -44,12 +51,16 @@ module.exports = {
   },
 
     updateThought(req, res) {
-      Thought.findOneAndUpdate({ _id: req.params.thoughtId })
+      Thought.findOneAndUpdate({ _id: req.params.thoughtId },{$set: req.body},{runValidators: true, new: true})
       .then((thought) => !thought 
       ? res.status(404).json ({ message: 'No thoughts with this id' })
       : res.json(thought)
       )
-      .catch((err) => res.status(500).json(err));
+    
+      .catch((err) => {
+        console.log(err)
+        return res.status(500).json(err)
+      });
     },
 
     deleteThought(req, res) {

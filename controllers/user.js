@@ -69,7 +69,25 @@ module.exports = {
         res.status(500).json(err);
       });
   },
-};
+
+//   newFriend(req, res) {
+//     User.findOneAndUpdate ({ _id: req.params.userId }, {$addToSet: { friends: req.params.friendId }}, {new: true})
+//     .then((user) => {
+//       if (!user) {
+//         return res.status(404).json({ message: "No user found with id" });
+//       }
+//       res.json(user);
+//      })
+//       .catch((err) => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+
+// },
+
+
+
+}
 
 // const { ObjectId } = require("mongoose").Types;
 // const { User, Thought } = require("../models");

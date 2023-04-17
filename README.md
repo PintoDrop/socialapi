@@ -16,7 +16,7 @@
 
 ## Description
 
-For this assignment I was tasked with creating a an API for a social network application where the user would be able to comment their thoughts and react to other users thoughts. Using express.js and mongoose this application will be tested with insomnia to show that the posts are able to be made as well as the reactions. Within insomnia I am able to create, update, find and delete a user. This is also synced to my mongoose so the data base is updated as I am making changes.
+For this assignment I was tasked with creating a an API for a social network application where the user would be able to comment their thoughts and react to other users thoughts. Using express.js and mongoose this application will be tested with insomnia to show that the posts are able to be made as well as the reactions. Within insomnia I am able to create, update, find and delete a user. This is also synced to my mongoose so the data base is updated as I am making changes. I used an npm called moment to help with formatting the date of the thoughts.
 
 ## Usage
 
@@ -24,7 +24,7 @@ The user will be able to comment their thoughts and then use reactions to reply 
 
 ## Installation
 
-You will need to install node packages including express.js and mongoose.js after cloning the repo.
+You will need to install node packages including express.js, moment and mongoose.js after cloning the repo.
 
 ## License
 

@@ -13,8 +13,8 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (createdAtVal) =>
-        moment(createdAtVal).format("MMMM DD, YYYY [at] hh:mm a"),
+      get: (createdAtTime) =>
+        moment(createdAtTime).format("MMMM DD, YYYY [at] hh:mm a"),
       // date,
       // set default value to current time stamp,
       // Use a getter method to format the timestamp on query

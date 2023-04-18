@@ -91,12 +91,8 @@ module.exports = {
       : res.json(thought)
     )
     .catch((err) => res.status(500).json(err));
-    //   if (!thought) {
-    //     return res.status(404).json({ message: 'Could not find thought with this id' });
-    //   }
-    //   res.json(thought);
-    // });
   },
+  
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },

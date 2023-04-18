@@ -1,5 +1,6 @@
 const { Schema, Types } = require("mongoose");
-// const thoughtSchema = require("./Thought");
+const moment = require("moment");
+const thoughtSchema = require("./Thought");
 
 const reactionSchema = new Schema(
   {

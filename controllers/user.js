@@ -36,7 +36,9 @@ module.exports = {
     )
       .then((user) => {
         if (!user) {
-          return res.status(404).json ({ message: 'User id not valid' });
+          return res
+            .status(404)
+            .json({ message: "No user matches with this id" });
         }
         res.json(user);
       })
@@ -50,7 +52,7 @@ module.exports = {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((user) =>
         !user
-          ? res.status(404).json({ message: "This user does not exist" })
+          ? res.status(404).json({ message: "No user matches with this id" })
           : Thought.findOneAndUpdate(
               { users: req.params.userId },
               { $pull: { users: req.params.userId } },
@@ -61,7 +63,7 @@ module.exports = {
         !thought
           ? res
               .status(404)
-              .json({ message: "User deleted, but no thoughts are located" })
+              .json({ message: "User deleted, but no thoughts were located" })
           : res.json({ message: "This user has been deleted from database" })
       )
       .catch((err) => {
@@ -70,37 +72,30 @@ module.exports = {
       });
   },
 
-//   newFriend(req, res) {
-//     User.findOneAndUpdate ({ _id: req.params.userId }, {$addToSet: { friends: req.params.friendId }}, {new: true})
-//     .then((user) => {
-//       if (!user) {
-//         return res.status(404).json({ message: "No user found with id" });
-//       }
-//       res.json(user);
-//      })
-//       .catch((err) => {
-//         console.log(err);
-//         res.status(500).json(err);
-//       });
+  newFriend(req, res) {
+    User.findOneAndUpdate ({ _id: req.params.userId }, {$addToSet: { friends: req.params.friendId }}, {new: true})
+    .then((user) => {
+      if (!user) {
+        return res.status(404).json({ message: "No user matches with this id" });
+      }
+      res.json(user);
+     })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 
-// },
+},
+
+  // deleteFriend(req, res) {
+  //   User.findOneAndUpdate({ _id: req.params.userId })
+  //   .then((user) =>
+  //   !user
+  //   ? res.status(404).json({ message: "Couldn't find friends with this ID" })
+  //   : )
+  // }
 
 
 
 }
 
-// const { ObjectId } = require("mongoose").Types;
-// const { User, Thought } = require("../models");
-
-// getUsers(req, res) {
-//   User.find().then(async (users) => {
-//     const userObj = { users, };
-//     return res.json(userObj);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//     return res.status(500).json(err);
-//   });
-// }
-
-// module.exports = User

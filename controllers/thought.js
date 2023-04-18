@@ -19,7 +19,7 @@ module.exports = {
     Thought.findOne({ _id: req.params.thoughtId })
       .then((thought) =>
         !thought
-          ? res.status(404).json({ message: "No thought with matching id" })
+          ? res.status(404).json({ message: "No thought matches this id" })
           : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
@@ -48,12 +48,6 @@ module.exports = {
         console.log(err);
         res.status(500).json(err);
       });
-    // Thought.create(req.body)
-    // .then((thought) => res.json(thought)).catch((err) => {
-    //   console.log(err);
-    //   return res.status(500).json(err);
-    // });
-    // }
   },
 
   updateThought(req, res) {
@@ -64,7 +58,7 @@ module.exports = {
     )
       .then((thought) =>
         !thought
-          ? res.status(404).json({ message: "No thoughts with this id" })
+          ? res.status(404).json({ message: "No thought matches this id" })
           : res.json(thought)
       )
 
@@ -78,25 +72,43 @@ module.exports = {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .then((thought) =>
         !thought
-          ? res.status(404).json({ message: "No thoughts with this id" })
+          ? res.status(404).json({ message: "No thought matches this id" })
           : User.deleteMany({ _id: { $in: thought.users } })
       )
       .then(() => res.json({ message: "Thought has been deleted" }))
       .catch((err) => res.status(500).json(err));
   },
 
-  // createReaction(req, res) {
-  //   Thought.findOneAndUpdate(
-  //     { _id: req.params.thoughtId},
-  //     { $addToSet: { reactions: req.body }},
-  //     {runValidators: true, new: true }
-  //   )
-  //   .then((thought) => {
-  //     if (!thought) {
-  //       return res.status(404).json({ message: 'Could not find thought with this id' });
-  //     }
-  //     res.json(thought);
-  //   });
-  // },
+  createReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId},
+      { $addToSet: { reactions: req.body }},
+      {runValidators: true, new: true }
+    )
+    .then((thought) => 
+      !thought
+      ? res.status(404).json ({ message: "No thought matches this id" })
+      : res.json(thought)
+    )
+    .catch((err) => res.status(500).json(err));
+    //   if (!thought) {
+    //     return res.status(404).json({ message: 'Could not find thought with this id' });
+    //   }
+    //   res.json(thought);
+    // });
+  },
+  deleteReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $pull: {reactions: { reactionId: req.params.reactionId }}},
+      {runValidators: true, new: true }
+    )
+    .then((thought) =>
+    !thought
+    ? res.status(404).json ({ message: "No thought matches this id" })
+    :res.json(thought)
+    )
+    .catch((err) => res.status(500).json(err));
+  }
 };
 // }

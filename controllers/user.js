@@ -73,28 +73,32 @@ module.exports = {
   },
 
   newFriend(req, res) {
-    User.findOneAndUpdate ({ _id: req.params.userId }, {$addToSet: { friends: req.params.friendId }}, {new: true})
-    .then((user) => {
-      if (!user) {
-        return res.status(404).json({ message: "No user matches with this id" });
-      }
-      res.json(user);
-     })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+    console.log("You made a new friend!");
+    User.findOneAndUpdate ({ _id: req.params.userId },
+       {$addToSet: { friends: req.params.friendId }}, 
+       {runValidators: true, new: true})
+    .then((user) => 
+    !user
+    ?res.status(404).json({ message: "No user matching with this id"})
+    :res.json(user)
+    )
+    .catch((err) => res.status(500).json(err));
 
 },
 
-  // deleteFriend(req, res) {
-  //   User.findOneAndUpdate({ _id: req.params.userId })
-  //   .then((user) =>
-  //   !user
-  //   ? res.status(404).json({ message: "Couldn't find friends with this ID" })
-  //   : )
-  // }
-
+  deleteFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $pull: { friends: { friendId: req.params.friendId }}},
+      { runValidators: true, new: true}
+    )
+    .then((user) =>
+    !user
+    ? res.status(404).json ({ message: "No friend is matching with this Id" })
+    : res.json(user)
+    )
+    .catch((err) => res.status(500).json(err));
+  }
 
 
 }

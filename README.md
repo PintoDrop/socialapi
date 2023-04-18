@@ -69,4 +69,3 @@ GIVEN a social network API
 ![Mongoose Reaction](./images/reactionMong.JPG)
 
 ![Insomnia add friend](./images/addFriend.JPG)
-

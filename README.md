@@ -56,7 +56,7 @@ GIVEN a social network API
 
 ## Walk-Through-Video
 
-[Walkthrough Video](https://drive.google.com/file/d/1pA6yOFMdDmjfqZhBv27f4MA54WpAG8IS/view)
+[Walkthrough Video](https://drive.google.com/file/d/1gfaXi34ECrztFIIIi3wViUsINPiuBkIR/view)
 
 ## Screen-Shots
 

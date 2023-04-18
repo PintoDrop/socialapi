@@ -11,7 +11,7 @@ module.exports = {
   getOneUser(req, res) {
     User.findOne({ _id: req.params.userId })
     .populate("thoughts")
-    // .populate("friends")
+    .populate("friends")
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },

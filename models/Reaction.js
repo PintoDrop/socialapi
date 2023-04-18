@@ -34,10 +34,4 @@ const reactionSchema = new Schema(
 );
 
 
-// Issue with models in reaction
-// const Reaction = model('Reaction', reactionSchema);
-
-// module.exports = Reaction;
-
-// trying different export
 module.exports = reactionSchema;

@@ -16,7 +16,7 @@
 
 ## Description
 
-For this assignment I was tasked with creating a an API for a social network application where the user would be able to comment their thoughts and react to other users thoughts. Using express.js and mongoose this application will be tested with insomnia to show that the posts are able to be made as well as the reactions. Within insomnia I am able to create, update, find and delete a user. This is also synced to my mongoose so the data base is updated as I am making changes. I used an npm called moment to help with formatting the date of the thoughts.
+For this assignment I was tasked with creating a an API for a social network application where the user would be able to comment their thoughts and react to other users thoughts. Using express.js and mongoose this application will be tested with insomnia to show that the posts are able to be made as well as the reactions. Within insomnia I am able to create, update, find and delete a user. This is also synced to my mongoose so the data base is updated as I am making changes. I used an npm called moment to help with formatting the date of the thoughts and reactions.
 
 ## Usage
 
@@ -56,7 +56,7 @@ GIVEN a social network API
 
 ## Walk-Through-Video
 
-[Walkthrough Video]()
+[Walkthrough Video](https://drive.google.com/file/d/1pA6yOFMdDmjfqZhBv27f4MA54WpAG8IS/view)
 
 ## Screen-Shots
 
@@ -64,16 +64,7 @@ GIVEN a social network API
 
 ![Mongoose user data](./images/userSyncMongoose.JPG)
 
+![Insomnia Reaction](./images/reactionInsomnia.JPG)
 
-<!-- 
-routes check?
-reaction schema models?
- -->
+![Mongoose Reaction](./images/reactionMong.JPG)
 
- <!-- 
- need to update users - DONE 
- need to add user without erroring out, even tho it appears - DONE
-
- need to post, find, update, delete a thought and such
- adding friends and reactions
-  -->
